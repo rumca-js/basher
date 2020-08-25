@@ -9,6 +9,7 @@ if b.run("dir", True) == 0 and b.run("dir /b", True) == 0:
     print(b.stderrstack[-1])
 """
 import subprocess
+import shlex
 
 
 class EmptyProcess(object):
@@ -27,6 +28,11 @@ class BashCtx(object):
 
         if thisshell is not None:
             shell_setting = thisshell
+
+        if not shell_setting:
+            command = shlex.split(command)
+
+        print(command)
 
         procout = None
         try:

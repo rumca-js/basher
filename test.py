@@ -3,7 +3,7 @@ import basher
 
 b = basher.BashCtx()
 
-if b.run("dir", True) == 0 and b.run("dir /b", True) == 0:
+if b.run(r"python.exe --version", False) == 0 and b.run("dir", True) == 0 and b.run("dir /b", True) == 0:
     print("Success\n")
 
     print(b.stdoutstack)
